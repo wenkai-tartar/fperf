@@ -1,11 +1,12 @@
 CXX      := g++
 CXXFLAGS := -pedantic-errors -Wno-sign-compare -Wno-unknown-pragmas -Wall -Wextra -Werror -std=c++17 -O3
-LDFLAGS  := -L/usr/lib -L/usr/local/lib/ -lstdc++ -lm -lz3
+Z3_ROOT  ?= /opt/z3-4.8.11
+LDFLAGS  := -L$(Z3_ROOT)/lib -Wl,-rpath,$(Z3_ROOT)/lib -L/usr/lib -L/usr/local/lib/ -lstdc++ -lm -lz3
 BUILD    := ./build
 OBJ_DIR  := $(BUILD)/objects
 APP_DIR  := $(BUILD)
 TARGET   := fperf
-INCLUDE  := -I/usr/local/include -Ilib/ -Ilib/metrics/ -Ilib/cps -Ilib/qms
+INCLUDE  := -I$(Z3_ROOT)/include -Ilib/ -Ilib/metrics/ -Ilib/cps -Ilib/qms
 SRC      :=	$(wildcard src/*.cpp) \
 						 $(wildcard src/*/*.cpp)
 TEST_SRC := $(wildcard tests/*.cpp)

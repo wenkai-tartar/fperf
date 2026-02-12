@@ -9,6 +9,14 @@ The stand-alone priority schedulers, composition of schedulers, and throughput a
 ## Installation
 fperf currently runs on Z3 v4.8.11 [link](https://github.com/Z3Prover/z3/releases/tag/z3-4.8.11)
 
+### macOS / Linux (Makefile)
+1. Install Z3 v4.8.11 and note its prefix (default expected by the Makefile is `/opt/z3-4.8.11`)
+2. Build with:
+	- `make` (uses `/opt/z3-4.8.11` by default)
+	- Or override: `make Z3_ROOT=/path/to/z3`
+3. Run tests with:
+	- `make test`
+
 ### Windows with Visual Studio
 1. Download fperf through github
 2. Create a new project in Visual Studio in the fperf folder
